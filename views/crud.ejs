@@ -5,8 +5,8 @@
         <meta name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- 3. Título de la página -->
-        <title>     </title>
+         <!-- 3. Título de la página -->
+        <title><%= title %></title>
 
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
@@ -35,7 +35,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <!-- 4. Título de la tabla -->
-                                <h2>    </h2>
+ <h2><%= title %></h2>
                             </div>
                             <div class="col-sm-6">
                                 <a href="#addEmployeeModal"
@@ -66,34 +66,41 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <!-- 5. Arreglo de usuarios -->
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1"
-                                            name="options[]" value="1">
-                                        <label for="checkbox1"></label>
-                                    </span>
-                                </td>
-                                <td> XX </td>
-                                <td> NN </td>
-                                <td> RR </td>
-                                <td>
-                                    <a href="#editEmployeeModal" class="edit"
-                                        data-toggle="modal"><i
-                                            class="material-icons"
-                                            data-toggle="tooltip"
-                                            title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal"
-                                        class="delete" data-toggle="modal"><i
-                                            class="material-icons"
-                                            data-toggle="tooltip"
-                                            title="Delete">&#xE872;</i></a>
-                                </td>
-                            </tr>
+                         <!-- 5. Arreglo de usuarios -->
+ <tbody>
+    <% usersArray.forEach( user => { %>
+    <tr>
+        <td>
+            <span class="custom-checkbox">
+                <input type="checkbox" id="checkbox1"
+                    name="options[]" value="1">
+                <label for="checkbox1"></label>
+            </span>
+        </td>
+        <td><%= user.iduser %></td>
+        <td><%= user.name %></td>
+        <td>
+            <!-- 
+                Dato relacionado
 
-                        </tbody>
+                users->users_roles->roles.name
+             -->
+        </td>
+        <td>
+            <a href="#editEmployeeModal" class="edit"
+                data-toggle="modal"><i
+                    class="material-icons"
+                    data-toggle="tooltip"
+                    title="Edit">&#xE254;</i></a>
+            <a href="#deleteEmployeeModal"
+                class="delete" data-toggle="modal"><i
+                    class="material-icons"
+                    data-toggle="tooltip"
+                    title="Delete">&#xE872;</i></a>
+        </td>
+    </tr>
+    <% }) %>
+</tbody>
                     </table>
                     <div class="clearfix">
                         <div class="hint-text">Showing <b>5</b> out of <b>25</b>
